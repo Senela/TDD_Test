@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
@@ -6,6 +7,16 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * Created by Senela on 15-1-31.
  */
 public class GuessNumberTest {
+
+    private  String randomNumber;
+
+    @Before
+    public void  setUp()
+    {
+        AnswerGenerator answerGenerator = new AnswerGenerator();
+        randomNumber = answerGenerator.getRandomNumber();
+    }
+
     @Test
     public void  GuessNumberTest4A0B() {
         GuessNumber guessNumber = new GuessNumber();
@@ -59,8 +70,7 @@ public class GuessNumberTest {
     @Test
     public void GetRandomNumber_first_string_different_with_others()
     {
-        GuessNumber guessNumber = new GuessNumber();
-        String randomNumber = guessNumber.getRandomNumber();
+
 
         String firstString =  randomNumber.substring(0, 1);
         assertThat(firstString.equals(randomNumber.substring(1, 2))).isEqualTo(false);
@@ -72,9 +82,6 @@ public class GuessNumberTest {
     @Test
     public void GetRandomNumber_second_string_different_with_others()
     {
-        GuessNumber guessNumber = new GuessNumber();
-        String randomNumber = guessNumber.getRandomNumber();
-
         String firstString =  randomNumber.substring(1, 2);
         assertThat(firstString.equals(randomNumber.substring(0, 1))).isEqualTo(false);
         assertThat(firstString.equals(randomNumber.substring(2, 3))).isEqualTo(false);
@@ -84,9 +91,6 @@ public class GuessNumberTest {
     @Test
     public void GetRandomNumber_third_string_different_with_others()
     {
-        GuessNumber guessNumber = new GuessNumber();
-        String randomNumber = guessNumber.getRandomNumber();
-
         String thirdString =  randomNumber.substring(2, 3);
         assertThat(thirdString.equals(randomNumber.substring(0, 1))).isEqualTo(false);
         assertThat(thirdString.equals(randomNumber.substring(1, 2))).isEqualTo(false);
