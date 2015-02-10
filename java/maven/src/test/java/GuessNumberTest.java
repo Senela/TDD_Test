@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Random;
@@ -10,6 +11,16 @@ import static org.mockito.Mockito.when;
  * Created by Senela on 15-1-31.
  */
 public class GuessNumberTest {
+
+    private  String randomNumber;
+
+    @Before
+    public void  setUp()
+    {
+        AnswerGenerator answerGenerator = new AnswerGenerator();
+        randomNumber = answerGenerator.getRandomNumber();
+    }
+
     @Test
     public void  GuessNumberTest4A0B() {
         GuessNumber guessNumber = new GuessNumber();
@@ -60,5 +71,35 @@ public class GuessNumberTest {
         assertThat(guessNumber.getTips("1234","4367")).isEqualTo("0A2B");
     }
 
+<<<<<<< HEAD
+=======
+    @Test
+    public void GetRandomNumber_first_string_different_with_others()
+    {
 
+
+        String firstString =  randomNumber.substring(0, 1);
+        assertThat(firstString.equals(randomNumber.substring(1, 2))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(2, 3))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(3, 4))).isEqualTo(false);
+    }
+
+
+    @Test
+    public void GetRandomNumber_second_string_different_with_others()
+    {
+        String firstString =  randomNumber.substring(1, 2);
+        assertThat(firstString.equals(randomNumber.substring(0, 1))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(2, 3))).isEqualTo(false);
+        assertThat(firstString.equals(randomNumber.substring(3, 4))).isEqualTo(false);
+    }
+
+    @Test
+    public void GetRandomNumber_third_string_different_with_others()
+    {
+        String thirdString =  randomNumber.substring(2, 3);
+        assertThat(thirdString.equals(randomNumber.substring(0, 1))).isEqualTo(false);
+        assertThat(thirdString.equals(randomNumber.substring(1, 2))).isEqualTo(false);
+        assertThat(thirdString.equals(randomNumber.substring(3, 4))).isEqualTo(false);
+    }
 }
