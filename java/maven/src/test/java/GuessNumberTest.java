@@ -71,8 +71,6 @@ public class GuessNumberTest {
         assertThat(guessNumber.getTips("1234","4367")).isEqualTo("0A2B");
     }
 
-<<<<<<< HEAD
-=======
     @Test
     public void GetRandomNumber_first_string_different_with_others()
     {
